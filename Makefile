@@ -1,7 +1,7 @@
 .PHONY: all say_Hello generate clean
 CC =gcc
 CFLAGS =-Wall -g
-BINS =librarytest libmycode.os
+BINS =librarytest libmycode.os runtime_librarytest
 all: $(BINS)
 
 libmycode.o: libmycode.c mycode.h
@@ -13,5 +13,8 @@ libmycode.os: libmycode.c mycode.h
 librarytest: librarytest.c libmycode.o
 	$(CC) $(CFLAGS) -o $@ $^
 
+runtime_librarytest: librarytest.c
+	$(CC) $(CFLAGS) -o $@ $^ -L. -lmycode
+
 clean:
-	rm *.o *.so librarytest main.exe
+	rm *.o $(BINS)
