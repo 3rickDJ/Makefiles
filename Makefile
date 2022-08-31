@@ -1,2 +1,2 @@
 say_Hello:
-	echo "Hellow meow"
+	@echo "Hellow meow"
