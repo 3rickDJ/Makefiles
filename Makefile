@@ -1,3 +1,4 @@
+.DEFAULT_GOAL := generate
 say_Hello:
 	@echo "Hellow meow"
 generate:
