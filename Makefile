@@ -1,10 +1,14 @@
 .PHONY: all say_Hello generate clean
 CC =gcc
 CFLAGS =-Wall -g
-all: librarytest
+BINS =librarytest libmycode.os
+all: $(BINS)
 
 libmycode.o: libmycode.c mycode.h
 	$(CC) $(CFLAGS) -c libmycode.c
+
+libmycode.os: libmycode.c mycode.h
+	$(CC) $(CFLAGS) -fPIC -shared -o $@ libmycode.c -lc
 
 librarytest: librarytest.c libmycode.o
 	$(CC) $(CFLAGS) -o $@ $^
