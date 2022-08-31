@@ -1,5 +1,5 @@
 .PHONY: all say_Hello generate clean
-CC =g++
+CC =gcc
 CFLAGS =-Wall -g
 all: librarytest
 
